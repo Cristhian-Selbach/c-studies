@@ -9,14 +9,42 @@
 #include <time.h>
 
 int main() {
-  int numero_aleatorio;
+  int mat[10][15];
 
   srand(time(NULL));
 
   for(int i = 0; i < 10; i++){
-    numero_aleatorio = (rand() % 51) + 50;
-    printf("Valor: %d", numero_aleatorio);
+    for(int j = 0; j < 15; j++){
+      mat[i][j] = (rand() % 100);
+      printf("%.2d ", mat[i][j]);
+    }
+    printf("\n");
   }
+
+  printf("\n");
+
+  int sumLinhas = 0, sumColuna = 0;
+
+  for(int i = 0; i < 10; i++){
+    for (int j = 0; j < 15; j++)
+    {
+      sumLinhas = mat[i][j] + sumLinhas;
+    }
+    printf("A soma dos elementos na linha %d eh %d \n", i, sumLinhas);
+    sumLinhas = 0;
+  }
+
+  printf("\n");
+
+  for(int i = 0; i < 15; i++){
+    for (int j = 0; j < 10; j++)
+    {
+      sumColuna = mat[j][i] + sumColuna;
+    }
+    printf("A soma dos elementos na coluna %d eh %d \n", i, sumColuna);
+    sumColuna = 0;
+  }
+
 
   return 0;
 }
