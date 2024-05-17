@@ -6,6 +6,7 @@ int main(){
 
   char word[100];
   gets(word);
+  // Outra forma: scanf("%[^\n]%*c", word);
 
   for(int i = 0; i < strlen(word); i++){
     if(word[i] == '-'){
